@@ -1,37 +1,9 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
-  ],
   "functions": {
-    "api/upload.js": {
+    "api/**/*.js": {
       "runtime": "nodejs18.x",
       "maxDuration": 30
-    },
-    "api/download.js": {
-      "runtime": "nodejs18.x"
-    },
-    "api/archiveProcessor.js": {
-      "runtime": "nodejs18.x"
-    },
-    "api/pdfGenerator.js": {
-      "runtime": "nodejs18.x"
     }
-  },
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
-  ]
+  }
 }
