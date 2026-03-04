@@ -288,32 +288,6 @@ body::before {
   line-height: 1.6;
 }
 
-/* Hide file input completely */
-input[type="file"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  position: absolute !important;
-  left: -9999px !important;
-  top: -9999px !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-/* Hide any file input that might appear */
-input[type="file"].hidden,
-input[type="file"]:not(.custom-file-input) {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  position: absolute !important;
-  left: -9999px !important;
-  top: -9999px !important;
-  width: 0 !important;
-  height: 0 !important;
-  pointer-events: none !important;
-}
-
 .upload-zone {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.02) 100%);
   backdrop-filter: blur(40px);
