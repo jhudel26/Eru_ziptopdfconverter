@@ -67,7 +67,9 @@ export default async function handler(req, res) {
     const baseUrl = process.env.VERCEL_URL 
       ? `https://${process.env.VERCEL_URL}` 
       : req.headers.host 
-        ? `https://${req.headers.host}` 
+        ? (req.headers.host.includes('localhost') 
+            ? `http://${req.headers.host}` 
+            : `https://${req.headers.host}`)
         : 'http://localhost:3000';
     
     console.log('Generated download URL:', `${baseUrl}/api/download/${jobId}`);
