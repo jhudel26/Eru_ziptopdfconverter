@@ -38,40 +38,6 @@ function App() {
           <FileUpload />
         </div>
 
-        {/* Features Section */}
-        <div className="features-section">
-          <h2 className="features-title">Why Choose ERU?</h2>
-          <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-icon-wrapper">
-                <div className="feature-icon">🚀</div>
-              </div>
-              <h3 className="feature-title">Lightning Fast</h3>
-              <p className="feature-description">
-                Advanced algorithms process large ZIP files in seconds, delivering PDFs instantly with optimal performance.
-              </p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon-wrapper">
-                <div className="feature-icon">🔒</div>
-              </div>
-              <h3 className="feature-title">Secure & Private</h3>
-              <p className="feature-description">
-                Your files are processed securely with end-to-end encryption. No permanent storage, maximum privacy.
-              </p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon-wrapper">
-                <div className="feature-icon">🎨</div>
-              </div>
-              <h3 className="feature-title">Modern Design</h3>
-              <p className="feature-description">
-                Experience cutting-edge UI with glassmorphism effects, smooth animations, and futuristic aesthetics.
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* Footer */}
         <div className="footer">
           <div className="footer-content">

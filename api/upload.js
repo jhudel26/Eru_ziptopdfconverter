@@ -73,6 +73,18 @@ export default async function handler(req, res) {
         : 'http://localhost:3000';
     
     console.log('Generated download URL:', `${baseUrl}/api/download/${jobId}`);
+    console.log('PDF file path:', outputPath);
+    console.log('PDF file exists:', await fs.pathExists(outputPath));
+    
+    // Store the PDF in memory for immediate download
+    const pdfBuffer = await fs.readFile(outputPath);
+    
+    // Store in a simple in-memory cache (for demo purposes)
+    global.pdfCache = global.pdfCache || {};
+    global.pdfCache[jobId] = {
+      buffer: pdfBuffer,
+      timestamp: Date.now()
+    };
     
     res.json({
       success: true,

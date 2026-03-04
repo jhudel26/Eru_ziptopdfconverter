@@ -13,10 +13,33 @@ export default async function handler(req, res) {
   }
 
   try {
+    console.log('Download request for job:', jobId);
+    
+    // Check in-memory cache first
+    global.pdfCache = global.pdfCache || {};
+    const cachedData = global.pdfCache[jobId];
+    
+    if (cachedData) {
+      console.log('Found PDF in cache, size:', cachedData.buffer.length);
+      
+      // Set headers for PDF download
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename="eru-converted-${jobId}.pdf"`);
+      res.setHeader('Content-Length', cachedData.buffer.length);
+
+      // Send the PDF file from cache
+      res.send(cachedData.buffer);
+      
+      // Clean up cache after serving
+      delete global.pdfCache[jobId];
+      
+      return;
+    }
+    
+    // Fallback to file system if not in cache
     const tempDir = `/tmp/${jobId}`;
     const outputPath = path.join(tempDir, `${jobId}.pdf`);
 
-    console.log('Download request for job:', jobId);
     console.log('Checking file path:', outputPath);
 
     // Check if the temp directory exists
@@ -32,7 +55,8 @@ export default async function handler(req, res) {
         error: 'PDF file not found or expired',
         jobId: jobId,
         tempDir: tempDir,
-        outputPath: outputPath
+        outputPath: outputPath,
+        cacheExists: !!cachedData
       });
     }
 
