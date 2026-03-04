@@ -9,6 +9,21 @@
       }
     }
   ],
+  "functions": {
+    "api/upload.js": {
+      "runtime": "nodejs18.x",
+      "maxDuration": 30
+    },
+    "api/download.js": {
+      "runtime": "nodejs18.x"
+    },
+    "api/archiveProcessor.js": {
+      "runtime": "nodejs18.x"
+    },
+    "api/pdfGenerator.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
