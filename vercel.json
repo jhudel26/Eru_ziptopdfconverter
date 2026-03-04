@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "functions": {
+    "api/upload.js": {
+      "runtime": "nodejs@18.x"
+    },
+    "api/download.js": {
+      "runtime": "nodejs@18.x"
+    }
+  }
+}
