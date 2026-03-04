@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
-import { Upload, File, Download, AlertCircle, CheckCircle, X } from 'lucide-react';
 
 const FileUpload = () => {
   const [selectedFile, setSelectedFile] = useState(null);
