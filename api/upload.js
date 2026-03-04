@@ -64,6 +64,7 @@ export default async function handler(req, res) {
     await generatePDF(extractDir, outputPath);
 
     // Return success with download URL
+    // Use query parameter format so it works with a non-dynamic route file `api/download.js`
     const baseUrl = process.env.VERCEL_URL 
       ? `https://${process.env.VERCEL_URL}` 
       : req.headers.host 
@@ -71,12 +72,14 @@ export default async function handler(req, res) {
             ? `http://${req.headers.host}` 
             : `https://${req.headers.host}`)
         : 'http://localhost:3000';
+
+    const downloadUrl = `${baseUrl}/api/download?jobId=${jobId}`;
     
-    console.log('Generated download URL:', `${baseUrl}/api/download/${jobId}`);
+    console.log('Generated download URL:', downloadUrl);
     
     res.json({
       success: true,
-      downloadUrl: `${baseUrl}/api/download/${jobId}`,
+      downloadUrl,
       jobId: jobId
     });
 
