@@ -1,0 +1,13 @@
+{
+  "short_name": "ERU ZIP to PDF",
+  "name": "ERU ZIP FILE TO PDF Converter",
+  "description": "Convert ZIP archives to PDF documents instantly",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#0f0f23",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr"
+}
