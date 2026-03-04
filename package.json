@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "ERU ZIP FILE TO PDF Converter - Modern web application for converting ZIP archives to PDF",
   "main": "src/index.js",
-  "type": "module",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
