@@ -64,9 +64,17 @@ export default async function handler(req, res) {
     await generatePDF(extractDir, outputPath);
 
     // Return success with download URL
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : req.headers.host 
+        ? `https://${req.headers.host}` 
+        : 'http://localhost:3000';
+    
+    console.log('Generated download URL:', `${baseUrl}/api/download/${jobId}`);
+    
     res.json({
       success: true,
-      downloadUrl: `/api/download/${jobId}`,
+      downloadUrl: `${baseUrl}/api/download/${jobId}`,
       jobId: jobId
     });
 

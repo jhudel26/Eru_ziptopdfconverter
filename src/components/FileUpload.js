@@ -101,7 +101,7 @@ const FileUpload = () => {
       {/* Upload Zone */}
       <div
         className="upload-zone"
-        onClick={() => fileInputRef.current?.click()}
+        onClick={() => !selectedFile && fileInputRef.current?.click()}
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >
